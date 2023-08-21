@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validação de Formulário</title>
+    <script>
+        function validarFormulario() {
+            var numeroA = parseFloat(document.getElementById("campoA").value);
+            var numeroB = parseFloat(document.getElementById("campoB").value);
+            
+            var mensagem = document.getElementById("mensagem");
+
+            if (isNaN(numeroA) || isNaN(numeroB)) {
+                mensagem.innerHTML = "Por favor, insira números válidos.";
+                mensagem.style.color = "red";
+            } else if (numeroB > numeroA) {
+                mensagem.innerHTML = "Formulário válido!";
+                mensagem.style.color = "green";
+            } else {
+                mensagem.innerHTML = "Número B deve ser maior que número A.";
+                mensagem.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Validação de Formulário</h1>
+    <form>
+        <label for="campoA">Número A:</label>
+        <input type="number" id="campoA" name="campoA" required><br><br>
+
+        <label for="campoB">Número B:</label>
+        <input type="number" id="campoB" name="campoB" required><br><br>
+
+        <button type="button" onclick="validarFormulario()">Submeter</button>
+    </form>
+
+    <p id="mensagem"></p>
+</body>
+</html>
